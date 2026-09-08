@@ -124,3 +124,8 @@ variable "common_labels" {
     projet = "nordis"
   }
 }
+
+variable "bucket_suffix" {
+  description = "Suffixe personnel garantissant l'unicité mondiale du nom du bucket"
+  type        = string
+}
