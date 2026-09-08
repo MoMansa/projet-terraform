@@ -25,3 +25,9 @@ variable "ssh_source_ranges" {
   type        = list(string)
   default     = ["35.235.240.0/20"]
 }
+
+variable "web_source_ranges" {
+  description = "Plage source autorisée pour le trafic HTTP entrant"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
