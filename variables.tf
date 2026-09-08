@@ -93,3 +93,34 @@ variable "common_labels" {
     projet = "nordis"
   }
 }
+
+variable "instance_count" {
+  description = "Nombre de machines web à créer"
+  type        = number
+  default     = 2
+}
+
+variable "machine_type" {
+  description = "Gabarit des machines web"
+  type        = string
+  default     = "e2-small"
+}
+
+variable "environment" {
+  description = "Environnement cible : dev, test ou prod uniquement"
+  type        = string
+  default     = "dev"
+
+  validation {
+    condition     = contains(["dev", "test", "prod"], var.environment)
+    error_message = "La variable environment n'accepte que dev, test ou prod."
+  }
+}
+
+variable "common_labels" {
+  description = "Étiquettes communes appliquées à toutes les ressources"
+  type        = map(string)
+  default = {
+    projet = "nordis"
+  }
+}
